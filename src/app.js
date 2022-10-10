@@ -26,9 +26,9 @@ for (const k in envConfig) {
  * Connect to MongoDB.
  */
 
-const url = 'mongodb+srv://farhaniftikhar:rMl0mak3Ce3hCjEL@cluster0.cznfc0m.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URL = '';
 
- mongoose.connect(url).then(() => {
+ mongoose.connect(MONGO_URL).then(() => {
    console.log('db connected');
  }).catch( (err) => {
    console.error(`Error connecting to the database. ${err}`);
@@ -106,7 +106,6 @@ function createBackup() {
     const bucketName = 'aodocsbucket';
     const accessKey = 'AKIA46QKRQGN5QZB634I';
     const accessSecret = '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';
-    const dbConnectionUri = 'mongodb+srv://farhaniftikhar:rMl0mak3Ce3hCjEL@cluster0.cznfc0m.mongodb.net/?retryWrites=true&w=majority';
     const prefix = "backups/";
 
     // const mongoS3Backup = require("node-mongodump-s3");
@@ -120,7 +119,7 @@ function createBackup() {
 
 
     const dumpPath = path.resolve(__dirname, "test_backup_" + Date.now() + ".bson");
-    const command = `mongodump  --uri="${dbConnectionUri}" --archive="${dumpPath}"`;
+    const command = `mongodump  --uri="${MONGO_URL}" --archive="${dumpPath}"`;
     exec(command, (error, stdout, stderr) => {
       // We cannot trust stderr cause mongo spits warnings/logs on this channel
       // so we check if the dump was created
@@ -129,19 +128,11 @@ function createBackup() {
         return;
       }
 
-      console.log(dumpPath);
-      // if (!fs.existsSync(dumpPath)) {
-      //   console.log("Something went wrong");
-      //   return;
-      // }
       s3Bucket.upload({
         Bucket: bucketName,
         Key: prefix + "test_backup_" + Date.now() + ".bson",
         Body: fs.createReadStream(dumpPath),
-      }, (err1, data) => {
-        console.log({err1});
-
-        console.log({data});
+      }, () => {
       });
     });
 
