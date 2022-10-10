@@ -1,0 +1,12 @@
+a {
+    text-decoration: none !important;
+}
+.navbar a, .navbar label {
+    color: white !important;
+}
+.dropdown-menu a {
+    color:black !important
+}
+.highlight {
+    background-color: yellow !important
+}

@@ -1,0 +1,127 @@
+<%
+    if(typeof files == 'undefined') {
+        var files = [];
+    }
+%>
+<div class="deque-hierarchical-menu-group">
+    <div id="navigationRoot">
+        <!-- <div class="row p-1">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-info btnAddFolder">Add Folder</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-info btnAddFile">Add File</button>
+            </div>
+        </div> -->
+        <ul class="deque-hierarchical-menu">
+            <%- partial('partials/menu-node', {files: files}) %>
+            <!-- <li>
+            <button data-menu-id="navigationRoot" id="School Activities">
+                <span class="fa fa-folder fa-fw mr-3"></span>
+                <span>Add Folder</span>
+            </button>
+            <ul>
+                <li>
+                <button data-menu-id="navigationRoot" id="Performance" data-parent-id="School Activities">
+                    <span>Performance</span>
+                </button>
+                <ul>
+                    <li>
+                    <a href="http://www.bing.com/search?q=band" data-menu-id="navigationRoot" data-parent-id="Performance" id="Band" class="external" target="_blank">
+                        <span class="fa fa-circle fa-fw mr-3"></span>
+                        "Band"
+                    </a>
+                    </li>
+                    <li>
+                    <a href="http://www.bing.com/search?q=choir" data-menu-id="navigationRoot" data-parent-id="Performance" id="Choir" class="external" target="_blank">
+                        "Choir"
+                    </a>
+                    </li>
+                    <li>
+                    <a href="http://www.bing.com/search?q=theater" data-menu-id="navigationRoot" data-parent-id="Performance" id="Theater" class="external" target="_blank">
+                        "Theater"
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                <button data-menu-id="navigationRoot" id="Sports" data-parent-id="School Activities">
+                    <span>Sports</span>
+                </button>
+                <ul>
+                    <li>
+                    <button data-menu-id="navigationRoot" id="Fall" data-parent-id="Sports">
+                        <span>Fall</span>
+                    </button>
+                    <ul>
+                        <li>
+                        <a href="http://www.bing.com/search?q=football" data-menu-id="navigationRoot" data-parent-id="Fall" id="Football" class="external" target="_blank">
+                            "Football"
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://www.bing.com/search?q=soccer" data-menu-id="navigationRoot" data-parent-id="Fall" id="Soccer" class="external" target="_blank">
+                            "Soccer"
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://www.bing.com/search?q=cross-country" data-menu-id="navigationRoot" data-parent-id="Fall" id="Cross Country" class="external" target="_blank">
+                            "Cross Country"
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://www.bing.com/search?q=cheerleading" data-menu-id="navigationRoot" data-parent-id="Fall" id="Cheerleading" class="external" target="_blank">
+                            "Cheerleading"
+                        </a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li>
+                    <button data-menu-id="navigationRoot" id="Winter" data-parent-id="Sports">
+                        <span>Winter</span>
+                    </button>
+                    <ul>
+                        <li>
+                        <a href="http://www.bing.com/search?q=basketball" data-menu-id="navigationRoot" data-parent-id="Winter" id="Basketball" class="external" target="_blank">
+                            "Basketball"
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://www.bing.com/search?q=wrestling" data-menu-id="navigationRoot" data-parent-id="Winter" id="Wrestling" class="external" target="_blank">
+                            "Wrestling"
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://www.bing.com/search?q=cheerleading" data-menu-id="navigationRoot" data-parent-id="Winter" id="Cheerleading" class="external" target="_blank">
+                            "Cheerleading"
+                        </a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li>
+                    <button data-menu-id="navigationRoot" id="Spring" data-parent-id="Sports">
+                        <span>Spring</span>
+                    </button>
+                    <ul>
+                        <li>
+                        <a href="http://www.bing.com/search?q=baseball" data-menu-id="navigationRoot" data-parent-id="Spring" id="Baseball" class="external" target="_blank">
+                            "Baseball"
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://www.bing.com/search?q=track" data-menu-id="navigationRoot" data-parent-id="Spring" id="Track" class="external" target="_blank">
+                            "Track"
+                        </a>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            </li> -->
+        </ul>
+    </div>
+</div>
+<script>
+    var files = JSON.parse('<%- JSON.stringify(allFlatFiles) %>');
+</script>

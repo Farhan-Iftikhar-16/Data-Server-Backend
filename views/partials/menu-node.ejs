@@ -1,0 +1,27 @@
+<%
+    if(typeof files == 'undefined') {
+        var files = [];
+    }
+%>
+<% files.forEach(function(file) { %>
+    <li>
+        <% if(file.fileType == 'folder') { %>
+            <button class="btnFileFolder" data-menu-id="navigationRoot" id="<%= file._id %>">
+                <span class="fa fa-folder fw mr-3"></span>
+                <span class="txtFolderName txtFileFolder" data-name="<%= file.name %>"><%= file.name %></span>
+            </button>
+        <% } else { %>
+            <a href="javascript:void(0)" class="btnFileFolder" data-menu-id="navigationRoot" data-parent-id="<%= file.parentId %>" id="<%= file._id %>" class="external">
+                <span class="fa fa-circle fa-fw mr-3"></span>
+                <span class="txtFileName txtFileFolder" data-name="<%= file.name %>">
+                    <%= file.name %>
+                </span>
+            </a>
+        <% } %>
+        <% if(file.children.length > 0) { %>
+            <ul>
+                <%- partial('partials/menu-node', {files: file.children}) %>
+            </ul>
+        <% } %>
+    </li>
+<% }) %>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/collapse.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Collapse Expand</title>
+</head>
+
+<body>
+    <!-- Bootstrap NavBar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button> -->
+        <a class="navbar-brand" href="#">
+            <span class="menu-collapsed">Home Page Builder</span>
+        </a>
+        <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown d-sm-block d-md-none">
+              <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu </a>
+              <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
+                  <a class="dropdown-item" href="#top">hjsahgjsa</a>
+                  <a class="dropdown-item" href="#top">Profile</a>
+                  <a class="dropdown-item" href="#top">Tasks</a>
+                  <a class="dropdown-item" href="#top">Etc ...</a>
+              </div>
+          </li>
+      </ul>
+  </div> -->
+    </nav><!-- NavBar END -->
+    <!-- Bootstrap row -->
+    <div class="row">
+        <div class="col-md-2 sidebar-content">
+            <div class="row" id="body-row">
+                <!-- Sidebar -->
+                <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+                    <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+                    <!-- Bootstrap List Group -->
+                    <ul class="list-group">
+                        <!-- Separator with title -->
+                        <li
+                            class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                            <large>ALL CATEGORIES</large>
+                        </li>
+                        <li
+                            class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                            <small>CATEGORIES & ARTICLES</small>
+                        </li>
+                        <!-- /END Separator -->
+                        <!-- Menu1 with submenu -->
+                        <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
+                            class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-start align-items-center">
+                                <span class="fa fa-folder fa-fw mr-3"></span>
+                                <span class="menu-collapsed">3.20.0 DEV</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </div>
+                        </a>
+                        <!-- Submenu1 content -->
+                        <div id='submenu1' class="collapse sidebar-submenu">
+                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                                <span class="fa fa-circle fa-fw mr-3"></span>
+                                <span class="menu-collapsed">I Zmienione</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                                <span class="fa fa-circle fa-fw mr-3"></span>
+                                <span class="menu-collapsed">I Zmienione</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </a>
+                        </div>
+                        <!-- Menu2 with submenu -->
+                        <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
+                            class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-start align-items-center">
+                                <span class="fa fa-folder fa-fw mr-3"></span>
+                                <span class="menu-collapsed">3.21.0</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </div>
+                        </a>
+                        <!-- Submenu2 content -->
+                        <div id='submenu2' class="collapse sidebar-submenu">
+                            <!-- Menu3 with submenu -->
+                            <a href="#submenu3" data-toggle="collapse" aria-expanded="false"
+                                class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-start align-items-center">
+                                    <span class="fa fa-folder fa-fw mr-3"></span>
+                                    <span class="menu-collapsed ">3.22.0</span>
+                                    <span class="submenu-icon ml-auto"></span>
+                                </div>
+                            </a>
+                            <!-- Submenu3 content -->
+                            <div id='submenu3' class="collapse sidebar-submenu">
+                                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                                    <span class="fa fa-circle fa-fw mr-3"></span>
+                                    <span class="menu-collapsed context-menu">submenu3.1</span>
+                                    <span class="submenu-icon ml-auto"></span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                                    <span class="fa fa-circle fa-fw mr-3"></span>
+                                    <span class="menu-collapsed">submenu3.2</span>
+                                    <span class="submenu-icon ml-auto"></span>
+                                </a>
+                            </div>
+                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                                <span class="fa fa-circle fa-fw mr-3"></span>
+                                <span class="menu-collapsed context-menu">I Zmienione</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                                <span class="fa fa-circle fa-fw mr-3"></span>
+                                <span class="menu-collapsed context-menu">I Zmienione</span>
+                                <span class="submenu-icon ml-auto"></span>
+                            </a>
+                        </div>
+                        <!-- Separator without title -->
+                    </ul><!-- List Group END-->
+                </div><!-- sidebar-container END -->
+                <!-- MAIN -->
+            </div><!-- body-row END -->
+        </div>
+        <div class="col-md-10 inner-contant">
+            <!--Inner screen content -->
+            <div class="inner-contant-editor">
+                <textarea id="ckplot"></textarea>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+            </div>
+            <!--End of Inner screen content -->
+        </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="js/collapsible.js"></script>
+
+</body>
+
+</html>
