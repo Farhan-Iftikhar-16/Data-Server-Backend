@@ -26,7 +26,7 @@ for (const k in envConfig) {
  * Connect to MongoDB.
  */
 
-const MONGO_URL = '';
+const MONGO_URL = ' ';
 
  mongoose.connect(MONGO_URL).then(() => {
    console.log('db connected');
@@ -39,7 +39,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // Create Express server
 const app = express();
 // Express configuration
-app.set("port", 4000);
+app.set("port", 5000);
 app.set("views", path.join(__dirname, "../views"));
 // view engine setup
 app.set('layout', 'layout');
@@ -87,6 +87,14 @@ app.get('/login', async (req, res, next) => {
   res.render('login', {});
 });
 
+app.post('/api/v1/backup', async (req, res) => {
+  await createBackup().then(() => {
+    return res.status(200).json({success:true,message: "Backup created successfully"});
+  }).catch(() => {
+    return res.status(500).json({success:false,message: "Error occurred while creating backup"});
+  });
+})
+
 app.get('/',isAuthenticated, async (req, res, next) => {
   let files = await helper.populateFFData(req.user._id);
   let allFlatFiles = await helper.flatData(req.user._id);
@@ -99,10 +107,16 @@ app.get('/menu',isAuthenticated, async (req, res, next) => {
   res.partial('partials/menu', { files: files, allFlatFiles: allFlatFiles });
 });
 
-createBackup();
+
+
+setInterval(() => {
+  createBackup().then();
+}, 86400000);
+
+
 
 function createBackup() {
-  setInterval(() => {
+  return  new Promise((resolve, reject) =>  {
     const bucketName = 'aodocsbucket';
     const accessKey = 'AKIA46QKRQGN5QZB634I';
     const accessSecret = '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';
@@ -124,7 +138,7 @@ function createBackup() {
       // We cannot trust stderr cause mongo spits warnings/logs on this channel
       // so we check if the dump was created
       if (error) {
-        console.log(error);
+        reject(false);
         return;
       }
 
@@ -132,18 +146,25 @@ function createBackup() {
         Bucket: bucketName,
         Key: prefix + "test_backup_" + Date.now() + ".bson",
         Body: fs.createReadStream(dumpPath),
-      }, () => {
+      }, (error) => {
+         if (error) {
+           reject(error);
+         }
+
+         if (!error) {
+           resolve();
+         }
       });
     });
+  })
+
 
   //   backupClient.backupDatabase({
   //     uri: dbConnectionUri,
   //     backupName: "test_backup_" + Date.now() + '.bson',
   //     prefix: prefix,
   //   }).then((response) => {
-  //     console.log("Success response ", response);
   //   });
-  }, 86400000);
 }
 
 /**

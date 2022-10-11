@@ -1,5 +1,9 @@
 const Explorer = require('../models/Explorer');
 const helper = require('./helper');
+const aws = require("aws-sdk");
+const path = require("path");
+const {exec} = require("child_process");
+const fs = require("fs");
 
 module.exports ={
     createFileOrFolder: async function(req, res){
@@ -111,3 +115,4 @@ async function saveFolderOrFile(item) {
         }
     });
 }
+

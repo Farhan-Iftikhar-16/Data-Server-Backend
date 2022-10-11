@@ -14,8 +14,7 @@ const server = app.listen(5000, () => {
     
     console.log(
         "  App is running at http://localhost:%d in %s mode",
-        PORT,
-        process.env.NODE_ENV
+        5000,
     );
     console.log("  Press CTRL-C to stop\n");
 });
